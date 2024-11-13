@@ -37,13 +37,9 @@ export type InitBlogHomePageFunction = () => Promise<{
 // Initialize the blog home page data.
 export const getBlogs: InitBlogHomePageFunction = async () => {
     try {
-        const featuredResponse = await fetch('https://fuzzy-palm-tree.vercel.app/api/blog/get/featured', {
-            method: 'GET', cache:'no-store'
-        });
+        const featuredResponse = await fetch('https://fuzzy-palm-tree.vercel.app/api/blog/get/featured',);
 
-        const allPostsResponse = await fetch('https://fuzzy-palm-tree.vercel.app/api/blog/get/all', {
-            method: 'GET', cache:'no-store'
-        });
+        const allPostsResponse = await fetch('https://fuzzy-palm-tree.vercel.app/api/blog/get/all',);
 
         // Validate responses by checking their status.
         if (featuredResponse.ok && allPostsResponse.ok) {
