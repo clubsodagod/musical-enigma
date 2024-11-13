@@ -1,6 +1,7 @@
 import { connectToMongoDB } from "../db";
-import { UserModel, CategoryModel, BlogModel } from "../models";
-import { IBlogPopulated } from "../models/blog";
+import Blog, { IBlogPopulated } from "../models/blog";
+import CategoryModel from "../models/category";
+import User from "../models/user";
 
 // GET featured blog post
 export const getAllPosts = async() => {
@@ -10,10 +11,10 @@ export const getAllPosts = async() => {
         // connect to database
         await connectToMongoDB();
 
-        await  UserModel.find()
+        await  User.find()
         await CategoryModel.find()
         // access featured blog posts
-        const allPosts = await BlogModel.find().populate(['author','category']);
+        const allPosts = await Blog.find().populate(['author','category']);
 
         // validate featured blog posts 
         if (allPosts) {
