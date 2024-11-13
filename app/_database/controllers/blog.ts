@@ -1,0 +1,63 @@
+import { connectToMongoDB } from "../db";
+import { UserModel, CategoryModel, BlogModel } from "../models";
+import { IBlogPopulated } from "../models/blog";
+
+// GET featured blog post
+export const getAllPosts = async() => {
+
+    try {
+        
+        // connect to database
+        await connectToMongoDB();
+
+        await  UserModel.find()
+        await CategoryModel.find()
+        // access featured blog posts
+        const allPosts = await BlogModel.find().populate(['author','category']);
+
+        // validate featured blog posts 
+        if (allPosts) {
+            return allPosts
+        } else {
+            return null
+        }
+    } catch (error) {
+        console.log(error);
+        
+        return null
+    }
+}
+
+export type InitBlogHomePageFunction = () => Promise<{
+    featuredPosts: IBlogPopulated[];
+    allPosts: IBlogPopulated[];
+} | null>;
+
+// Initialize the blog home page data.
+export const getBlogs: InitBlogHomePageFunction = async () => {
+    try {
+        const featuredResponse = await fetch('https://fuzzy-palm-tree.vercel.app/api/blog/get/featured', {
+            method: 'GET', cache:'no-store'
+        });
+
+        const allPostsResponse = await fetch('https://fuzzy-palm-tree.vercel.app/api/blog/get/all', {
+            method: 'GET', cache:'no-store'
+        });
+
+        // Validate responses by checking their status.
+        if (featuredResponse.ok && allPostsResponse.ok) {
+            const featuredPosts = await featuredResponse.json().then((res) => res.featuredPosts as IBlogPopulated[]);
+            const allPostsUnfiltered = await allPostsResponse.json().then((res) => res.posts as IBlogPopulated[]);
+
+            // Filter out posts that are already featured.
+            const allPostsFiltered = allPostsUnfiltered.filter((p) => !p.featured);
+
+            return { featuredPosts, allPosts:allPostsFiltered };
+        } else {
+            return null;
+        }
+    } catch (error) {
+        console.error('Error initializing blog home page:', error);
+        return null;
+    }
+};
