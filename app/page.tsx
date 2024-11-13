@@ -11,10 +11,8 @@ export default async function Home() {
   // force creation at build time for SEO purposes
   const posts = await getBlogs();
   // destructure posts object
-  const {
-    featuredPosts,
-    allPosts
-  } = posts!;
+  const featuredPosts = posts?.featuredPosts;
+  // const allPosts = posts?.allPosts;
 
 
     return (
@@ -30,7 +28,7 @@ export default async function Home() {
           />
           <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
             <li className="mb-2">
-              Get started by editing{" "}
+              {featuredPosts && featuredPosts[0].title} 
               <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
                 app/page.tsx
               </code>
