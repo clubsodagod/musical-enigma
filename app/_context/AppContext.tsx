@@ -1,13 +1,15 @@
 'use client'
 
 import { createContext, useContext,} from "react";
-import { ScreenContextType, ScrollContextType } from "../_library/types/context";
+import { AppContainerContextType, ScreenContextType, ScrollContextType } from "../_library/types/context";
 import ScreenContext from "./building-blocks/ScreenContext";
 import ScrollContext from "./building-blocks/ScrollContext";
+import AppContainerContext from "./building-blocks/AppContainerContext";
 
 type AppContextType = {
     screen:ScreenContextType,
     scroll:ScrollContextType,
+    appContainer:AppContainerContextType,
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -26,8 +28,10 @@ const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
     const scroll = ScrollContext();
 
+    const appContainer = AppContainerContext();
+
     return (
-        <AppContext.Provider value={{ screen, scroll }}>
+        <AppContext.Provider value={{ screen, scroll, appContainer }}>
             {children}
         </AppContext.Provider>
     );

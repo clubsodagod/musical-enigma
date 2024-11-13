@@ -49,6 +49,45 @@ const theme = createTheme({
             margin:0,
             lineHeight:1,
         },
+        h4:{
+            color: "whitesmoke",
+            fontFamily: vinaSans.style.fontFamily,
+            fontSize:'2.75em',
+            margin:0,
+            lineHeight:1,
+        },
+        h5:{
+            color: "whitesmoke",
+            fontFamily: vinaSans.style.fontFamily,
+            fontSize:'2.25em',
+            margin:0,
+            lineHeight:1,
+        },
+        h6:{
+            color: "whitesmoke",
+            fontFamily: vinaSans.style.fontFamily,
+            fontSize:'1.5em',
+            margin:0,
+            lineHeight:1,
+        },
+        subtitle1:{
+            color: "whitesmoke",
+        },
+        subtitle2:{
+            color: "whitesmoke",
+        },
+        body1:{
+            color: "whitesmoke",
+        },
+        body2:{
+            color: "whitesmoke",
+        },
+        caption:{
+            color: "whitesmoke",
+        },
+        overline:{
+            color: "whitesmoke",
+        },
     },
     palette:{
         primary:{

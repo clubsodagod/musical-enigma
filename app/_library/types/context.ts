@@ -1,4 +1,5 @@
-import { MotionValue } from "motion/react";
+import { AnimationControls, MotionValue,  Variants } from "motion/react";
+import { RefObject } from "react";
 
 
 export type ScreenContextType = {
@@ -26,4 +27,13 @@ export interface ScrollContextType {
     sevenEightsCtn:number,
     scrollY:MotionValue,
     scrollYProgress:MotionValue,
+    currentSection:string,
+    setCurrentSection:React.Dispatch<string>;
+}
+
+export interface AppContainerContextType {
+    gradientVariants:Variants|undefined;
+    setGradientVariants:React.Dispatch<Variants|undefined>;
+    scrollRef: RefObject<HTMLDivElement>;
+    controls:AnimationControls;
 }

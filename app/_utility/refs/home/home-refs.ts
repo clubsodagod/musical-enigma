@@ -2,7 +2,7 @@ import { RefIDObject } from "@/app/_library/types/refs";
 import { useRef, RefObject } from "react";
 
 // Custom hook to create and manage refs
-export const useSectionRefs = (): {
+export const useHomeRefs = (): {
     mainRef: RefObject<HTMLDivElement>;
     scrollRef: RefObject<HTMLDivElement>;
     bodyRef: RefObject<HTMLBodyElement>;
@@ -19,10 +19,10 @@ export const useSectionRefs = (): {
     const bodyRef = useRef<HTMLBodyElement>(null);
 
     const refs = [
-        { ref: mainRef, id: 'main' },
-        { ref: programmerRef, id: 'programmer' },
-        { ref: investRef, id: 'invest' },
-        { ref: blogRef, id: 'blog' }
+        { ref: mainRef, id: 'home' },
+        { ref: programmerRef, id: 'home-programmer' },
+        { ref: investRef, id: 'home-invest' },
+        { ref: blogRef, id: 'home-blog' }
     ];
 
 

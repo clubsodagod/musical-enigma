@@ -2,6 +2,7 @@ import { useScroll } from 'motion/react';
 import {  useState } from 'react'
 
 const ScrollContext = () => {
+    const [currentSection, setCurrentSection] = useState<string>('');
 	const { scrollYProgress, scrollY, } = useScroll();
     const [windowScrollHeight, setWindowScrollHeight] = useState<number>(0);
     const [windowHeight, setWindowHeight] = useState<number>(0);
@@ -41,7 +42,9 @@ const ScrollContext = () => {
         threeEighthsCtn,
         fiveEightsCtn,
         sevenEightsCtn,
-        dynamicIncrement, scrollY, scrollYProgress
+        dynamicIncrement, scrollY, scrollYProgress,
+        currentSection,
+        setCurrentSection
     }
 }
 

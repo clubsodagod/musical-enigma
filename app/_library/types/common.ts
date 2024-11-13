@@ -1,3 +1,5 @@
+import type { HTMLMotionProps } from "motion/react";
+import { RefObject } from "react";
 
 export type Photo = {
     portrait?:string;
@@ -13,3 +15,25 @@ export type Video = {
 export type PhotoV2 = string
 
 export type VideoV2 = string
+
+
+
+export type MotionDivProps = HTMLMotionProps<'div'>;
+
+export interface HeroProps extends MotionDivProps {
+    ctnRef: RefObject<HTMLDivElement>;
+    id:string;
+}
+
+
+export type NavItemChild = {
+    label:string;
+    path?:string;
+    children?: NavItemChild[]
+}
+
+export type NavItem = {
+    label:string;
+    path:string;
+    children?: NavItemChild[]
+}
