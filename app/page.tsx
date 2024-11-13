@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { useAppContext } from "./_context/AppContext";
 import { getBlogs } from "./_database/controllers/blog";
 
 
