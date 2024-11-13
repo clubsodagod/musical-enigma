@@ -1,7 +1,9 @@
 import Image from "next/image";
 import { getBlogs } from "./_database/controllers/blog";
 
-
+// Next.js will invalidate the cache when a
+// request comes in, at most once every 60 seconds.
+export const revalidate = 3600;
 
 export default async function Home() {
 
