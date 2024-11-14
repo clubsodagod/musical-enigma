@@ -24,7 +24,7 @@
     "@uidotdev/usehooks": "^2.4.1",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
-    "framer-motion-3d": "^11.2.0",
+    "framer-motion-3d": "^11",
     "gl-noise": "^1.6.1",
     "gsap": "^3.12.5",
     "html-react-parser": "^5.1.16",
