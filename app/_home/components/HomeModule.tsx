@@ -5,22 +5,41 @@ import MainHomeHero from './MainHomeHero'
 import HomeProgrammerSection from './HomeProgrammerSection'
 import HomeBlogSection from './HomeBlogSection'
 import { IBlogPopulated } from '@/app/_database/models/blog'
+import WindowUpdater from '@/app/_utility/window/WindowUpdater'
+import IntersectionWatcher from '@/app/_utility/window/IntersectionWatcher'
+import { scrollToSection } from '@/app/_utility/scroll/scroll-to-section'
+import { useAppContext } from '@/app/_context/AppContext'
 
 interface HomeModuleProps {
-    featuredPosts: IBlogPopulated[]|undefined;
+    featuredPosts: IBlogPopulated[] | undefined;
 }
 
-const HomeModule:React.FC<HomeModuleProps> = ({featuredPosts}) => {
+const HomeModule: React.FC<HomeModuleProps> = ({ featuredPosts }) => {
 
     const {
-        mainRef, programmerRef, blogRef
+        appContainer:{
+            currentSection
+        }
+    } = useAppContext();
+
+    const {
+        mainRef, programmerRef, blogRef, scrollRef, refs
     } = useHomeRefs()
 
+
+    function scrollToSectionHandler(id: string) {
+        console.log(id);
+        
+        scrollToSection(id, refs, currentSection);
+    };
+    
+    WindowUpdater(scrollRef);
+    IntersectionWatcher({ refs });
     return (
         <>
-            <MainHomeHero ctnRef={mainRef} id='home-main' />
-            <HomeProgrammerSection ctnRef={programmerRef} id='home-programmer' />
-            <HomeBlogSection ctnRef={blogRef} id='home-blog' posts={featuredPosts} />
+            <MainHomeHero ctnRef={mainRef} id='home-main' scrollTo={scrollToSectionHandler} />
+            <HomeProgrammerSection ctnRef={programmerRef} id='home-programmer' scrollTo={scrollToSectionHandler} />
+            <HomeBlogSection ctnRef={blogRef} id='home-blog' posts={featuredPosts} scrollTo={scrollToSectionHandler} />
         </>
     )
 }

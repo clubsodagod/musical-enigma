@@ -19,9 +19,8 @@ export const useHomeRefs = (): {
     const bodyRef = useRef<HTMLBodyElement>(null);
 
     const refs = [
-        { ref: mainRef, id: 'home' },
+        { ref: mainRef, id: 'home-main' },
         { ref: programmerRef, id: 'home-programmer' },
-        { ref: investRef, id: 'home-invest' },
         { ref: blogRef, id: 'home-blog' }
     ];
 

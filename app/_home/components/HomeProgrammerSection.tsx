@@ -6,12 +6,16 @@ import { MotionDiv } from '@/app/_components/common/framer/MotionDiv'
 import MotionPageWrapper from '@/app/_components/common/SectionWrapper'
 import Header from '@/app/_components/common/Header'
 import { MotionP } from '@/app/_components/common/framer/MotionP'
-import ButtonPro from './ButtonPro'
+import ButtonPro from '../../_components/common/ButtonPro'
 import HeroButtonCtn from '@/app/_components/common/HeroButtonCtn'
 import { missionStatement } from '@/app/_library/const/brand'
+import ArrowCircleDownRoundedIcon from '@mui/icons-material/ArrowCircleDownRounded';
+import IconButton from '@/app/_components/common/IconButton'
+
 
 const HomeProgrammerSection: React.FC<HeroProps> = ({
     ctnRef,
+    scrollTo,
     ...props
 }) => {
     return (
@@ -41,8 +45,12 @@ const HomeProgrammerSection: React.FC<HeroProps> = ({
                 </MotionP>
 
                 <HeroButtonCtn
-                className='btn-ctn right-btn-ctn'
                 >
+                    <IconButton
+                        label={<ArrowCircleDownRoundedIcon />}
+                        onClick={() => { scrollTo('previous') }}
+                    />
+
 
                     <ButtonPro
                         variant='contained'
@@ -60,6 +68,12 @@ const HomeProgrammerSection: React.FC<HeroProps> = ({
                         label={`Let's Work`}
                         color='secondary'
                     />
+
+
+                        <IconButton
+                            label={<ArrowCircleDownRoundedIcon />}
+                            onClick={() => { scrollTo('next') }}
+                        />
 
                 </HeroButtonCtn>
             </MotionDiv>

@@ -1,9 +1,9 @@
-import { useAnimationControls, Variants } from 'motion/react';
+import { useAnimationControls } from 'motion/react';
 import React, { useState } from 'react';
 
 const AppContainerContext = () => {
 
-    const [gradientVariants, setGradientVariants] = useState<Variants|undefined>();
+    const [currentSection, setCurrentSection] = useState<string|undefined>();
 
     const scrollRef = React.useRef<HTMLDivElement>(null);
 
@@ -12,7 +12,7 @@ const AppContainerContext = () => {
 
 
     return {
-        gradientVariants, setGradientVariants,
+        currentSection, setCurrentSection,
         scrollRef, controls
     }
 }

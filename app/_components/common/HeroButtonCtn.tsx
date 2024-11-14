@@ -16,7 +16,7 @@ const HeroButtonCtn:React.FC<HeroButtonCtnProps> = ({
     id,
     ...props
 }) => {
-    const classNames = props.className  ? props.className : 'btn-ctn';
+    const classNames = props.className  ? `${props.className} btn-ctn` : 'btn-ctn';
     return (
         <MotionDiv
         {...props}

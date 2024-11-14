@@ -23,6 +23,7 @@ export type MotionDivProps = HTMLMotionProps<'div'>;
 export interface HeroProps extends MotionDivProps {
     ctnRef: RefObject<HTMLDivElement>;
     id:string;
+    scrollTo:(arg0:string)=>void|undefined;
 }
 
 

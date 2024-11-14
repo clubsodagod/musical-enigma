@@ -1,4 +1,4 @@
-import { AnimationControls, MotionValue,  Variants } from "motion/react";
+import { AnimationControls, MotionValue } from "motion/react";
 import { RefObject } from "react";
 
 
@@ -32,8 +32,8 @@ export interface ScrollContextType {
 }
 
 export interface AppContainerContextType {
-    gradientVariants:Variants|undefined;
-    setGradientVariants:React.Dispatch<Variants|undefined>;
+    currentSection:string|undefined;
+    setCurrentSection:React.Dispatch<string|undefined>;
     scrollRef: RefObject<HTMLDivElement>;
     controls:AnimationControls;
 }

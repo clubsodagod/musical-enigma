@@ -6,12 +6,14 @@ import { MotionDiv } from '@/app/_components/common/framer/MotionDiv'
 import MotionPageWrapper from '@/app/_components/common/SectionWrapper'
 import Header from '@/app/_components/common/Header'
 import { MotionP } from '@/app/_components/common/framer/MotionP'
-import ButtonPro from './ButtonPro'
+import ButtonPro from '../../_components/common/ButtonPro'
 import HeroButtonCtn from '@/app/_components/common/HeroButtonCtn'
 import ScrollableItemCtn from '@/app/_components/common/ScrollableItemCtn'
 import ScrollCtnWrapper from '@/app/_components/common/ScrollCtnWrapper'
 import { IBlogPopulated } from '@/app/_database/models/blog'
 import BlogCard from '@/app/_components/common/blog/BlogCard'
+import IconButton from '@/app/_components/common/IconButton'
+import KeyboardDoubleArrowUpRoundedIcon  from '@mui/icons-material/KeyboardDoubleArrowUpRounded';
 
 interface HomeBlogSectionProps extends HeroProps {
     posts: IBlogPopulated[] | undefined;
@@ -20,6 +22,7 @@ interface HomeBlogSectionProps extends HeroProps {
 const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({
     ctnRef,
     posts,
+    scrollTo,
     ...props
 }) => {
     return (
@@ -75,6 +78,11 @@ const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({
                     className='btn-ctn left-btn-ctn'
                 >
 
+                    <IconButton
+                        label={<KeyboardDoubleArrowUpRoundedIcon />}
+                        onClick={() => { scrollTo('previous') }}
+                        
+                    />
                     <ButtonPro
                         variant='contained'
                         // href={'/blog/categories'}

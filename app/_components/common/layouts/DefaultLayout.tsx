@@ -5,6 +5,7 @@ import { useAppContext } from '@/app/_context/AppContext'
 import { ThemeProvider } from '@mui/material'
 import { theme } from '@/app/_library/themes'
 import Navbar from '../Navbar'
+import { gradientVariants } from '@/app/_library/const/gradient-variants'
 
 const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
@@ -12,6 +13,7 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
     const {
         appContainer: {
             scrollRef,
+            controls,
         }
     } = useAppContext()
 
@@ -20,8 +22,9 @@ const DefaultLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
 
             <ThemeProvider theme={theme}>
             <MotionBody
-                id='default-body'
-
+                id='default-body'   
+                animate={controls}
+                variants={gradientVariants}
             >
             <Navbar />
                 <main
