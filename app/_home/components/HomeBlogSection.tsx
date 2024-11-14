@@ -14,6 +14,7 @@ import { IBlogPopulated } from '@/app/_database/models/blog'
 import BlogCard from '@/app/_components/common/blog/BlogCard'
 import IconButton from '@/app/_components/common/IconButton'
 import KeyboardDoubleArrowUpRoundedIcon  from '@mui/icons-material/KeyboardDoubleArrowUpRounded';
+import ArrowCircleDownRoundedIcon from '@mui/icons-material/ArrowCircleDownRounded';
 
 interface HomeBlogSectionProps extends HeroProps {
     posts: IBlogPopulated[] | undefined;
@@ -80,9 +81,16 @@ const HomeBlogSection: React.FC<HomeBlogSectionProps> = ({
 
                     <IconButton
                         label={<KeyboardDoubleArrowUpRoundedIcon />}
-                        onClick={() => { scrollTo('previous') }}
+                        onClick={() => { scrollTo('top') }}
                         
                     />
+                    
+                    <IconButton
+                        label={<ArrowCircleDownRoundedIcon />}
+                        onClick={() => { scrollTo('previous') }}
+                        down
+                    />
+
                     <ButtonPro
                         variant='contained'
                         // href={'/blog/categories'}

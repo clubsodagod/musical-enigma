@@ -74,22 +74,22 @@ export const navItems: NavItem[] = [
     //         // },
     //     ]
     // },
-    {
-        label: 'blog',
-        path: '/blog',
-        children: [
-            {
-                label: 'categories',
-                path: '/blog/categories'
-            }
-        ]
-    },
-    {
-        label: 'about',
-        path: '/about',
-    },
-    {
-        label: 'contact',
-        path: '/contact'
-    },
+    // {
+    //     label: 'blog',
+    //     path: '/blog',
+    //     children: [
+    //         {
+    //             label: 'categories',
+    //             path: '/blog/categories'
+    //         }
+    //     ]
+    // },
+    // {
+    //     label: 'about',
+    //     path: '/about',
+    // },
+    // {
+    //     label: 'contact',
+    //     path: '/contact'
+    // },
 ]

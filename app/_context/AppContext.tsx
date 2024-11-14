@@ -16,7 +16,7 @@ const AppContext = createContext<AppContextType | undefined>(undefined);
 export const useAppContext = (): AppContextType => {
     const context = useContext(AppContext);
     if (!context) {
-        throw new Error('useScreenContext must be used within a useScreenProvider');
+        throw new Error('useAppContext must be used within a useAppProvider');
     }
     return context;
 };

@@ -7,13 +7,14 @@ const AppContainerContext = () => {
 
     const scrollRef = React.useRef<HTMLDivElement>(null);
 
+    // const {scrollY, scrollYProgress} = useScroll({container:scrollRef,});
 
     const controls = useAnimationControls();
 
 
     return {
         currentSection, setCurrentSection,
-        scrollRef, controls
+        scrollRef, controls, 
     }
 }
 

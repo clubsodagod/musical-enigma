@@ -62,6 +62,7 @@ body {
   padding-block: 10vh 2.5vh;
   justify-content: space-between;
   overflow-y: hidden;
+  overflow-x: hidden;
   /* background-color: black; */
   /* z-index: 5; */
   pointer-events: all;

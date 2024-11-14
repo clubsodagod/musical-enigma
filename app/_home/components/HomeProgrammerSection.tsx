@@ -49,6 +49,7 @@ const HomeProgrammerSection: React.FC<HeroProps> = ({
                     <IconButton
                         label={<ArrowCircleDownRoundedIcon />}
                         onClick={() => { scrollTo('previous') }}
+                        down
                     />
 
 

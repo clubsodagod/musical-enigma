@@ -36,4 +36,6 @@ export interface AppContainerContextType {
     setCurrentSection:React.Dispatch<string|undefined>;
     scrollRef: RefObject<HTMLDivElement>;
     controls:AnimationControls;
+    // scrollY:MotionValue;
+    // scrollYProgress:MotionValue;
 }
